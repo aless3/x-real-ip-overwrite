@@ -3,7 +3,7 @@ type: middleware
 
 import: github.com/aless3/x-real-ip-overwrite
 
-summary: 'test ip'
+summary: "override X-Real-IP header with another header, like CF-Connecting-iP"
 
 testData:
   header-name: "CF-Connecting-IP"
