@@ -9,6 +9,7 @@ import (
 const (
 	XRealIP        = "X-Real-IP"
 	DefaultName    = "CF-Connecting-IP"
+	OverwrittenName    = "X-Real-IP-Overwritten"
 )
 
 // Config the plugin configuration.
@@ -47,7 +48,7 @@ func (xrip *XRealIPOverwriter) ServeHTTP(rw http.ResponseWriter, req *http.Reque
 	ip := req.Header.Get(xrip.headerName)
   if ip != "" {
     realWrong := req.Header.Get(XRealIP)
-    req.Header.Set("overwritten", realWrong)
+    req.Header.Set(OverwrittenName, realWrong)
     req.Header.Set(XRealIP, ip)
   }
 
