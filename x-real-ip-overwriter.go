@@ -11,6 +11,7 @@ import (
 
 const (
 	XRealIP        = "X-Real-IP"
+	DefaultName    = "CF-Connecting-IP"
 )
 
 // Config the plugin configuration.
@@ -21,7 +22,7 @@ type Config struct {
 // CreateConfig creates the default plugin configuration.
 func CreateConfig() *Config {
 	return &Config{
-		headerName: nil,
+		headerName: DefaultName,
 	}
 }
 
