@@ -1,3 +1,7 @@
+## NOTICE: TESTS MISSING
+This works for my use case, I will add tests probably early next years, busy with others things, if you want to add test you are more than welcome! <3
+The file `x-real-ip-overwriter_test.go` contains the default logic of the demo plugin now.
+
 ## What is this?
 
 This plugin is a middleware that does only one thing: replace the X-Real-IP header with the value of another header.
