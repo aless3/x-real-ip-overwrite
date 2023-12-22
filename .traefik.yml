@@ -1,12 +1,9 @@
-displayName: Demo Plugin
+displayName: x-real-ip-overwrite
 type: middleware
-iconPath: .assets/icon.png
 
-import: github.com/traefik/plugindemo
+import: github.com/aless3/x-real-ip-overwrite
 
-summary: '[Demo] Add Request Header'
+summary: 'test ip'
 
 testData:
-  Headers:
-    X-Demo: test
-    X-URL: '{{URL}}'
+  header-name: "CF-Connecting-IP"

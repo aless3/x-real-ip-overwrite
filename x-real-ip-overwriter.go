@@ -1,12 +1,9 @@
-// Package x-real-ip-overwrite
-package aless3/x-real-ip-overwrite
+package x_real_ip_overwrite
 
 import (
-	"bytes"
 	"context"
 	"fmt"
 	"net/http"
-	"text/template"
 )
 
 const (
@@ -35,8 +32,8 @@ type XRealIPOverwriter struct {
 
 // Plugin:
 func New(ctx context.Context, next http.Handler, config *Config, name string) (http.Handler, error) {
-	if config.headerName == nil {
-		return nil, fmt.Errorf("header name cannot be nil")
+	if config.headerName == "" {
+		return nil, fmt.Errorf("header name cannot be empty")
 	}
 
 	return &XRealIPOverwriter{
@@ -47,13 +44,12 @@ func New(ctx context.Context, next http.Handler, config *Config, name string) (h
 }
 
 func (xrip *XRealIPOverwriter) ServeHTTP(rw http.ResponseWriter, req *http.Request) {
-
-
 	ip := req.Header.Get(xrip.headerName)
-
-
-
-	req.Header.Set("test", ip)
+  if ip != "" {
+    realWrong := req.Header.Get(XRealIP)
+    req.Header.Set("overwritten", realWrong)
+    req.Header.Set(XRealIP, ip)
+  }
 
 	xrip.next.ServeHTTP(rw, req)
 }
