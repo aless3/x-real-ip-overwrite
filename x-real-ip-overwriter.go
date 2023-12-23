@@ -25,7 +25,7 @@ func CreateConfig() *Config {
 }
 
 // Demo a Demo plugin.
-type XRealIPOverwriter struct {
+type XRealIPOverwrite struct {
 	next         http.Handler
 	headerName  string
 	name         string
@@ -37,14 +37,14 @@ func New(ctx context.Context, next http.Handler, config *Config, name string) (h
 		return nil, fmt.Errorf("header name cannot be empty")
 	}
 
-	return &XRealIPOverwriter{
+	return &XRealIPOverwrite{
 		next:       next,
     headerName: config.headerName,
 		name:       name,
 	}, nil
 }
 
-func (xrip *XRealIPOverwriter) ServeHTTP(rw http.ResponseWriter, req *http.Request) {
+func (xrip *XRealIPOverwrite) ServeHTTP(rw http.ResponseWrite, req *http.Request) {
 	ip := req.Header.Get(xrip.headerName)
   if ip != "" {
     realWrong := req.Header.Get(XRealIP)

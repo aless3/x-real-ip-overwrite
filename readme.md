@@ -1,6 +1,6 @@
 ## NOTICE: TESTS MISSING
 This works for my use case, I will add tests probably early next years, busy with others things, if you want to add test you are more than welcome! <3
-The file `x-real-ip-overwriter_test.go` should contain the logic of the tests, it is now absent.
+The file `x-real-ip-overwrite_test.go` should contain the logic of the tests, it is now absent.
 
 ## What is this?
 
@@ -35,7 +35,7 @@ http:
   middlewares:
     real-ip: # the name to use in chains - you can change this
       plugin:
-        x-real-ip-overwriter:
+        x-real-ip-overwrite:
           header-name: "CF-Connecting-IP" # or watever the header is called
 ```
 
