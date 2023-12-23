@@ -11,7 +11,7 @@ import (
 
 // no changes
 func TestDemoNoCF(t *testing.T) {
-	cfg := x_real_ip_overwrite.CreateConfig()
+	cfg := XRealIPOverwriter.CreateConfig()
 
 	ctx := context.Background()
 	next := http.HandlerFunc(func(rw http.ResponseWriter, req *http.Request) {})
