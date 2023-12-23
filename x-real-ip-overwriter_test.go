@@ -6,7 +6,7 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/aless3/x-real-ip-overwrite"
+	# "github.com/aless3/x-real-ip-overwrite"
 )
 
 # no changes
