@@ -6,7 +6,7 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	// "github.com/aless3/x-real-ip-overwrite"
+	"github.com/aless3/x-real-ip-overwrite"
 )
 
 // no changes
@@ -16,7 +16,7 @@ func TestDemoNoCF(t *testing.T) {
 	ctx := context.Background()
 	next := http.HandlerFunc(func(rw http.ResponseWriter, req *http.Request) {})
 
-	handler, err := x-real-ip-overwrite.New(ctx, next, cfg, "x-real-ip-overwrite")
+	handler, err := XRealIPOverwriter.New(ctx, next, cfg, "x-real-ip-overwrite")
 	if err != nil {
 		t.Fatal(err)
 	}
