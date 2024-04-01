@@ -9,6 +9,7 @@ import (
 const (
 	XRealIP     = "X-Real-IP"
 	DefaultName = "CF-Connecting-IP"
+	XFF         = "X-Forwarded-For"
 	Overwritten = "X-Real-IP-Overwritten"
 )
 
@@ -49,7 +50,9 @@ func (xrip *XRIPOverwrite) ServeHTTP(rw http.ResponseWriter, req *http.Request) 
 	if ip != "" {
 		XRIPWrong := req.Header.Get(XRealIP)
 		req.Header.Set(Overwritten, XRIPWrong)
+
 		req.Header.Set(XRealIP, ip)
+		req.Header.Set(XFF, ip)
 	}
 
 	xrip.next.ServeHTTP(rw, req)
